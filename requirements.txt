@@ -1,0 +1,2 @@
+PyP100>=0.0.19
+configargparse==0.12.0
