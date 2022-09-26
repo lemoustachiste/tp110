@@ -1,7 +1,9 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors')
 
 const app = express();
+app.use(cors());
 
 const DATA_FILE = './data/daily_consumption.json'
 
