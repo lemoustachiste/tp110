@@ -2,3 +2,4 @@ read/conf.ini
 .idea
 __pycache__
 venv
+node_modules
