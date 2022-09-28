@@ -9,15 +9,22 @@ export default function displayDailyData (data: DataShape) {
   const dailyData = data.days.map(day => parseInt(day.total, 10));
 
   const chartData: ChartConfiguration = {
-    type: 'bar',
+    type: 'line',
     data: {
       labels,
       datasets: [{
-        label: 'September', // TODO: no hard code bro
+        label: 'Days',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
         data: dailyData
       }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
     }
   };
 
