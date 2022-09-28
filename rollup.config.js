@@ -1,5 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
 import serve from 'rollup-plugin-serve';
+import resolve from '@rollup/plugin-node-resolve';
 
 export default {
   input: 'front/browser/index.ts',
@@ -12,6 +13,7 @@ export default {
   ],
   plugins: [
     typescript(),
+    resolve(),
     serve({
       contentBase: [
         'front/browser/lib',
