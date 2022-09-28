@@ -1,10 +1,11 @@
-import { Chart, ChartConfiguration, registerables } from 'chart.js';
 import prepareMonthData from "./prepareMonthData";
+import createChart from "./createChart";
 import type { DataShape } from '../index';
+import type { ChartConfiguration } from './createChart';
 
-export function displayMonthData (data: DataShape) {
+export default function displayMonthData (data: DataShape) {
   const monthData = prepareMonthData(data)
-  const targetElement = document.getElementById('month');
+  const targetElement = document.getElementById('monthly');
 
   const labels = [
     'Janvier',
@@ -34,6 +35,5 @@ export function displayMonthData (data: DataShape) {
     }
   };
 
-  Chart.register(...registerables);
-  new Chart(targetElement as HTMLCanvasElement, chartData);
+  createChart(targetElement as HTMLCanvasElement, chartData);
 }
