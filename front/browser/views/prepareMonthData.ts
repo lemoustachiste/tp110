@@ -1,13 +1,8 @@
-export interface DataShape {
-  days: Array<{
-    date: string; // ISO no minutes
-    total: string;
-  }>
-}
+import type { DataShape } from '../index';
 
 export type MonthData = number[];
 
-export default function prepareMonthView (data: DataShape): MonthData {
+export default function prepareMonthData (data: DataShape): MonthData {
   const recordedMonths = Array(12).fill(0);
 
   data.days.forEach(day => {

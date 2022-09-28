@@ -1,5 +1,6 @@
-import prepareMonthView from '../../browser/prepareMonthView';
-import type { DataShape, MonthData } from '../../browser/prepareMonthView';
+import prepareMonthData from '../../browser/views/prepareMonthData';
+import type { MonthData } from '../../browser/views/prepareMonthData';
+import type { DataShape } from '../../browser';
 
 describe('prepareMonthView unit test suite', function () {
   it('should organize the data by month and total consumption', function () {
@@ -22,6 +23,6 @@ describe('prepareMonthView unit test suite', function () {
 
     const expectedOutput: MonthData = [0, 0, 0, 0, 0, 0, 0, 0, 2000, 1000, 0, 0];
 
-    expect(prepareMonthView(fixtureData)).toEqual(expectedOutput);
+    expect(prepareMonthData(fixtureData)).toEqual(expectedOutput);
   });
 });
