@@ -10,7 +10,7 @@ export interface DataShape {
 }
 
 async function init (): Promise<void> {
-  const data: DataShape = await request('http://0.0.0.0:3333/read', SERVER_METHODS.GET);
+  const data: DataShape = await request('http://192.168.0.14:3333/read', SERVER_METHODS.GET);
   displayMonthData(data);
   displayDailyData(data);
 }
