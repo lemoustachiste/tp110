@@ -1,7 +1,8 @@
 from datetime import date, timedelta
 import json
+import os
 
-DATA_FILE = "./data/daily_consumption.json"
+DATA_FILE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "../data/daily_consumption.json"))
 
 
 def save_daily(data):
@@ -13,6 +14,7 @@ def save_daily(data):
 
 def prepare_data_to_save(date, consumption) -> str:
     with open(DATA_FILE, "r") as file:
+        print("open data file at " + DATA_FILE)
         stored_data = json.load(file)
         target = stored_data["days"]
         target.append({
