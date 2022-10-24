@@ -6,7 +6,7 @@ DATA_FILE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file
 
 
 def save_daily(data):
-    yesterdays_consumption = data["result"]["past30d"][-2]
+    yesterdays_consumption = sum(data["result"]["data"])
     yesterdays_date = date.today() - timedelta(days=1)
     data_to_save = prepare_data_to_save(yesterdays_date, yesterdays_consumption)
     save_to_file(data_to_save)
@@ -17,6 +17,11 @@ def prepare_data_to_save(date, consumption) -> str:
         print("open data file at " + DATA_FILE)
         stored_data = json.load(file)
         target = stored_data["days"]
+
+        if str(date) == target[-1]["date"]:
+            print("Date", str(date), "has already been saved, skipping")
+            return
+
         target.append({
             "date": str(date),
             "total": str(consumption)
